@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Your Portfolio</title>
+</head>
+<body>
+
+    <header id="main-header">
+        <h1>{ Elemen }</h1>
+        <div class="languages">
+            <i class="fab fa-js"></i>
+            <i class="fab fa-java"></i>
+            <i class="fab fa-ts"></i>
+            <i class="fab fa-cpp"></i>
+        </div>
+        <div class="introduce">
+            <p id="intro-text-en">Hello! I'm a bored middle school student, Elemen.</p>
+            <p id="intro-text-ko" style="display:none;">안녕하세요! 저는 심심한 중학생 엘멘입니다</p>
+        </div>
+        <div id="language-buttons">
+            <button onclick="changeLanguage('en')">English</button>
+            <button onclick="changeLanguage('ko')">한국어</button>
+        </div>
+    </header>
+
+    <section>
+        <div class="project">
+            <h2 class="rainbow-text">Memoria</h2>
+            <p id="intro-text-ko">
+                메모리아는 마인크래프트 Je/Be RPG 서버이다. 플러그인, 리소스팩, 애드온을 제작하고 서버 관리를 하고 있다.
+                서버에서 사용하고 있는 구동기는 Liteloader bds와 Paper MC 구동기를 사용하고 있고 플러그인을 만들 때 사용한 언어로는
+                [C++, Java, Js]를 사용하고 있다.
+            </p>
+            <p id="intro-text-en" style="display:none;">
+                Memoria is a Minecraft Je/Be RPG server. I produce plugins, resource packs, add-ons, and manage servers.
+                The drivers used by the server are Liteloader bds and Paper MC drivers, and the language used to create plugins is
+                [C++, Java, Js].
+            </p>
+            <a href="#project1" class="gradient-btn" onclick="animateButton()">View Project</a>
+        </div>        
+    </section>
+
+    <footer>
+        &copy; 2023 ELMEN
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('main-header');
+            const scrollPosition = window.scrollY;
+
+            header.style.background = scrollPosition > 50 ? 'linear-gradient(to right, #e74c3c, #c0392b)' : 'linear-gradient(to right, #3498db, #2980b9)';
+        });
+
+        function animateButton() {
+            const button = event.target;
+            button.classList.add('animate');
+            setTimeout(function() {
+                button.classList.remove('animate');
+            }, 1000);
+        }
+
+        function changeLanguage(language) {
+            const introTextEn = document.getElementById('intro-text-en');
+            const introTextKo = document.getElementById('intro-text-ko');
+
+            if (language === 'en') {
+                introTextEn.style.display = 'block';
+                introTextKo.style.display = 'none';
+            } else if (language === 'ko') {
+                introTextEn.style.display = 'none';
+                introTextKo.style.display = 'block';
+            }
+        }
+    </script>
+
+</body>
+</html>
